@@ -14,25 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Fail if anything fails.
-set -ev
-
-TEST_DIR=$1
-pushd $TEST_DIR
-
-echo Preparing test $TEST_DIR
-
-# Execute the prep.sh files within this project, if any.
-# These are often used to retrieve test sources for the libraries.
-find . -name prep.sh | while read PREP_SCRIPT_FILE
-do
-    pushd `dirname $PREP_SCRIPT_FILE`
-    sh prep.sh
-    popd
-done
-
-echo Running test $TEST_DIR
-./gradlew wrapper
-./gradlew clean
-./gradlew build
-popd
+../../common/prep-tests.sh gson-2.3.1 https://github.com/google/gson.git src/test
