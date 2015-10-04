@@ -31,8 +31,5 @@ j2objcConfig {
         // https://github.com/j2objc-contrib/j2objc-common-libs-e2e-test/issues/35
         exclude 'com/google/gson/functional/ThrowableFunctionalTest**'
     }
-
-    // package-info.java exists in multiple packages.
-    filenameCollisionCheck false
     finalConfigure()
 }
